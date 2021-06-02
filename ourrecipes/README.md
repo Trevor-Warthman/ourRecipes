@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+# ourRecipes
+A website to collect recipes with tagging, logins, and customization in order to track your own or see friends recipes.
+
+To start soon.
