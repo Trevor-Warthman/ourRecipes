@@ -27,3 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 A website to collect recipes with tagging, logins, and customization in order to track your own or see friends recipes.
 
 To start soon.
+
+cd into ourRecipes git project folder
+cd into ourrecipes vue folder
+npm run serve to start
