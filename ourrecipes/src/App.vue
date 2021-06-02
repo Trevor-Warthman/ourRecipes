@@ -2,17 +2,20 @@
   <div>
     <h1>Our Recipes</h1>
     <img alt="Vue logo" src="./assets/logo.jpg">
-    <LoginModule></LoginModule>
+    <LoginModule title="Login Here"></LoginModule>
+    <Dashboard type="public" title="Public Recipes" v-bind:heightPercOfWidth="60"></Dashboard>
   </div>
 </template>
 
 <script>
 import LoginModule from './components/LoginModule'
+import Dashboard from './components/Dashboard'
 
 export default {
   name: 'App',
   components: {
-    LoginModule
+    LoginModule,
+    Dashboard
   }
 }
 </script>

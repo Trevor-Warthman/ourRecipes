@@ -31,3 +31,8 @@ To start soon.
 cd into ourRecipes git project folder
 cd into ourrecipes vue folder
 npm run serve to start
+
+
+TODO:
+fake database json file with my passcode and username in it
+Make an option to "create an account", only allowed if their username is already in my file I guess. Have a guest account.
