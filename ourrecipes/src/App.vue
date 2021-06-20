@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import db from './components/firebaseInit'
 import LoginModule from './components/LoginModule'
 import Dashboard from './components/Dashboard'
 
@@ -19,8 +20,26 @@ export default {
   },
   data() {
     return {
-      homepageRecipes: [
-        {
+      homepageRecipes: []
+    }
+  },
+  created() {
+    db.collection('recipes').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        //doc.id, doc.data, etc.
+        const data = {
+          'author': doc.data().author,
+          'name': doc.data().name,
+          'tags': doc.data().tags
+        }
+        this.homepageRecipes.push(data)
+      })
+    })
+  }
+}
+
+/*
+{
           name: "Bahn Mi",
           author: "Trevor Warthman",
           tags: ["Vietnam", "Vietnamise", "Sandwich", "Chicken", "Asian", "Trendy"]
@@ -35,11 +54,10 @@ export default {
           author: "Trevor Warthman",
           tags: ["Texan", "Mexican", "Classic", "Easy", "Spicy", "Hot", "Warm"]
         },
-      ]
-    }
-  }
-}
+*/ 
 </script>
+
+
 
 <style>
 #app {

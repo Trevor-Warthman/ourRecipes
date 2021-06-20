@@ -16,7 +16,7 @@ export default {
 <!--  -->
 <style scoped>
 .recipeTag {
-    padding: 10px;
+    padding: 4px;
     width: 80px;
     height: 20px;
     border-radius: 30px;
