@@ -36,3 +36,5 @@ npm run serve to start
 TODO:
 fake database json file with my passcode and username in it
 Make an option to "create an account", only allowed if their username is already in my file I guess. Have a guest account.
+Figure out how to pass css into a module from parent, cuz I want to pass what the h-w ratio should be into the dashboard.
+Install dev tools
