@@ -1,6 +1,6 @@
 <template>
   <div class="dashRecipe">
-    <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">{{author}}</span></span> 
+    <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
       <RecipeTag v-for="tag in tags" :key="tag" :tagTitle="tag"></RecipeTag>
     </span>
@@ -47,7 +47,7 @@ export default {
   font-size: 18px;
 }
 .recipeAuthor {
-  font-size: 18px;
+  font-size: 14px;
   padding-left: 10px;
 }
 </style>

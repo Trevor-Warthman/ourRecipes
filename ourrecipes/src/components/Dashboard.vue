@@ -42,4 +42,14 @@ export default {
 .dashContainer {
   border: 1.25px solid grey;
 }
+
+.dashBoarder div:nth-child(3n) {
+  background-color: #ECEBF3;
+}
+.dashBoarder div:nth-child(3n -1) {
+  background-color: #BC4B51;
+}
+.dashBoarder div:nth-child(3n -2) {
+  background-color: #4A7B9D;
+}
 </style>
