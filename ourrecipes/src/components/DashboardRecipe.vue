@@ -1,0 +1,53 @@
+<template>
+  <div class="dashRecipe">
+    <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">{{author}}</span></span> 
+    <span ref="tagContainer">
+      <RecipeTag v-for="tag in tags" :key="tag" :tagTitle="tag"></RecipeTag>
+    </span>
+  </div>
+</template>
+
+<script>
+import RecipeTag from './RecipeTag.vue'
+export default {
+  name: 'DashboardRecipe',
+  props: {
+    name: String,
+    author: String,
+    tags: Array
+  },
+  components: {
+    RecipeTag
+  },
+  methods: {
+      //insertTags() {
+      //  this.tags.forEach((tag) => {
+      //    d = document.createElement("div")
+      //    this.$refs['tagsContainer'].appendChild()
+      //  });
+      //}
+  },
+}
+</script>
+
+<style scoped>
+
+.dashRecipe {
+    border: 1px solid grey;
+    width: 100%;
+    height: 30px;
+    vertical-align: center;
+}
+
+.recipeHead{ 
+  float: left;
+}
+.recipeTitle {
+  font-weight: bold;
+  font-size: 18px;
+}
+.recipeAuthor {
+  font-size: 18px;
+  padding-left: 10px;
+}
+</style>
