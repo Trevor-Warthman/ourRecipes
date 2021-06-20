@@ -16,10 +16,11 @@ export default {
 <!--  -->
 <style scoped>
 .recipeTag {
-    padding-left: 10px;
+    padding: 10px;
     width: 80px;
     height: 20px;
-    border-radius: 25px;
+    border-radius: 30px;
     background-color: #EE6C4D;
+    text-align: center;
 }
 </style>
