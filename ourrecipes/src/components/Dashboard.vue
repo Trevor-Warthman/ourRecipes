@@ -37,6 +37,10 @@ export default {
 }
 .dashRecipe {
   padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dashContainer {

@@ -2,7 +2,9 @@
   <div class="dashRecipe">
     <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
-      <RecipeTag v-for="tag in tags" :key="tag" :tagTitle="tag"></RecipeTag>
+      <RecipeTag v-for="tag in tags" :key="tag" 
+      class="recipeTag"
+      :tagTitle="tag"></RecipeTag>
     </span>
   </div>
 </template>
@@ -34,7 +36,7 @@ export default {
 
 .dashRecipe {
     border: 1px solid grey;
-    width: 100%;
+    width: 90%;
     height: 30px;
     vertical-align: center;
 }
@@ -49,5 +51,11 @@ export default {
 .recipeAuthor {
   font-size: 14px;
   padding-left: 10px;
+}
+
+.recipeTag {
+  margin: .25vw;
+  border: 1px solid black;
+  color: black;
 }
 </style>
