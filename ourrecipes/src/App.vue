@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Our Recipes</h1>
-    <img alt="Vue logo" src="./assets/logo.jpg">
+    <img alt="Vue logo" src="@/assets/logo.jpg">
     <LoginModule title="Login Here"></LoginModule>
     <Dashboard type="public" title="Public Recipes"  :recipes="homepageRecipes"></Dashboard>
   </div>
@@ -9,8 +9,8 @@
 
 <script>
 import db from './components/firebaseInit'
-import LoginModule from './components/LoginModule'
-import Dashboard from './components/Dashboard'
+import LoginModule from '@/components/LoginModule'
+import Dashboard from '@/components/Dashboard'
 
 export default {
   name: 'App',
