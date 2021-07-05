@@ -1,12 +1,13 @@
 <template>
   <div class="HomePage">
-    Home Page
+    <span>Home Page</span>
+    <router-link to="/">Fake return to sign in</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AboutPage",
+  name: "HomePage",
   props: {},
   components: {},
   data() {},

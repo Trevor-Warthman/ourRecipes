@@ -3,6 +3,8 @@
     <h1>Our Recipes</h1>
     <img alt="Vue logo" src="@/assets/logo.jpg">
     <LoginModule title="Login Here"></LoginModule>
+    HYE
+    <router-link to="/Home" type="button">Fake sign in</router-link>
     <Dashboard type="public" title="Public Recipes"  :recipes="homepageRecipes"></Dashboard>
   </div>
 </template>
