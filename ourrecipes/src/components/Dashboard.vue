@@ -6,6 +6,7 @@
       class="dashRecipe" 
       :name="recipe.name" :author="recipe.author" :tags="recipe.tags">
       </DashboardRecipe>
+      <div v-if="currentRecipeQuickView !== null"> content for viewing recipe id 45</div>
     </div>
   </div>
 </template>
@@ -21,6 +22,11 @@ export default {
     type: String,
     title: String,
     recipes: Array
+  },
+  data() {
+    return {
+      currentRecipeQuickView: null
+    }
   }
 }
 </script>
