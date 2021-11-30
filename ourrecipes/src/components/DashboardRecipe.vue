@@ -1,5 +1,5 @@
 <template>
-  <div class="dashRecipe">
+  <div @click="goToRecipeView()" class="dashRecipe">
     <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
       <RecipeTag v-for="tag in tags" :key="tag" 
@@ -22,6 +22,9 @@ export default {
     RecipeTag
   },
   methods: {
+    goToRecipeView(){
+      
+    }
       //insertTags() {
       //  this.tags.forEach((tag) => {
       //    d = document.createElement("div")
