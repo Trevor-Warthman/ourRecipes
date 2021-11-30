@@ -14,9 +14,18 @@ import RecipeTag from './RecipeTag.vue'
 export default {
   name: 'DashboardRecipe',
   props: {
-    name: String,
-    author: String,
-    tags: Array
+    name: {
+      type: String,
+      required: true
+    },
+    author: {
+      type: String,
+      required: true
+    },
+    tags: {
+      type: Array,
+      required: true
+    } 
   },
   components: {
     RecipeTag

@@ -18,9 +18,23 @@ export default {
     DashboardRecipe
   },
   props: {
-    type: String,
-    title: String,
-    recipes: Array
+    type: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    recipes: {
+      type: Array,
+      required: true
+    } 
+  },
+  data() {
+    return {
+      
+    }
   }
 }
 </script>
