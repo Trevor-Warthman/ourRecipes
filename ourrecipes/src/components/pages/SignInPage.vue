@@ -57,12 +57,9 @@ export default {
         const users = db.collection('users');
         //let authorInfo = null;
         users.doc(doc.data().userId).get().then(snapshot => {
-          console.log(snapshot)
           let authorInfo = snapshot.data();//authorInfo is coming up undefined
-          console.log(authorInfo)
           let recipeInfo = doc.data()
           recipeInfo.authorInfo = authorInfo;
-          console.log(authorInfo)
           this.insertFeaturedRecipe(recipeInfo)
         })
         
