@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import signInPage from '@/components/pages/SignInPage.vue'
 import about from '@/components/pages/AboutPage.vue'
 import home from '@/components/pages/HomePage.vue'
+import recipe from '@/components/pages/Recipe.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: home
+  },
+  {
+    path: "/:recipe",
+    name: "Recipe",
+    component: recipe
   }
 ];
 

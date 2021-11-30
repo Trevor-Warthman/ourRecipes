@@ -19,6 +19,7 @@ export default {
     styleObject: Object,
   },
   components: {
+    AuthorNote,
     RecipeIngredientList,
     RecipeInstructions,
   },
