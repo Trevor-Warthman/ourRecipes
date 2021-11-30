@@ -3,23 +3,22 @@ import { createStore } from "vuex"
 
 const store = createStore({
     state:{
-        test: "bingo",
         userId: "guest",
-        recipeInformation: [],
+        featuredRecipes: [],
     },
     getters:{
-        currentRecipesStored: state => {
-            return state.recipeInformation.length;
+        featuredRecipes: state => {
+            return state.featuredRecipes.length;
         }
     },
     mutations:{
-        INSERT_RECIPE_INFO (state, newRecipeInfo) {
-            state.recipeInformation.push(newRecipeInfo)
+        INSERT_FEATURED_RECIPE (state, newRecipeInfo) {
+            state.featuredRecipes.push(newRecipeInfo)
           },
     },
     actions:{
-        insertRecipeInfo({ commit }, newRecipeInfo) {
-            commit('INSERT_RECIPE_INFO', newRecipeInfo)
+        insertFeaturedRecipe({ commit }, newRecipeInfo) {
+            commit('INSERT_FEATURED_RECIPE', newRecipeInfo)
         }
     }
 })
