@@ -3,6 +3,7 @@ import signInPage from '@/components/pages/SignInPage.vue'
 import about from '@/components/pages/AboutPage.vue'
 import home from '@/components/pages/HomePage.vue'
 import recipe from '@/components/pages/Recipe.vue'
+import createRecipe from '@/components/pages/CreateRecipe.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: home
+  },
+  {
+    path: "/createRecipe",
+    name: "CreateRecipe",
+    component: createRecipe
   },
   {
     path: "/:recipe",
