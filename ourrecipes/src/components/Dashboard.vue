@@ -4,7 +4,10 @@
     <div class="dashBoarder">
       <DashboardRecipe v-for="recipe in recipes" :key="recipe" 
       class="dashRecipe" 
-      :name="recipe.name" :author="recipe.author" :tags="recipe.tags">
+        :name="recipe.name" 
+        :author="recipe.author" 
+        :tags="recipe.tags" 
+        :docId="recipe.docId">
       </DashboardRecipe>
       <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
     </div>

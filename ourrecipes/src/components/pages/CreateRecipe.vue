@@ -77,11 +77,11 @@ export default {
       }
       else {
         let submitMsg = document.getElementById('submitting');
-
         submitMsg.innerHTML = 'Adding Recipe...';
 
         db.collection('recipes').add(data).then(() => {
           submitMsg.innerHTML = 'Added!';
+          this.$router.push('/');
         }, err => {
           submitMsg.innerHTML = 'Failed :(';
           console.error(err);
@@ -115,14 +115,6 @@ export default {
         }
       }
     },
-    genRandomDocString: () => {
-      let result           = '';
-      let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      for (let i = 0; i < 20; i+=1) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      return result;
-    }
   }
 };
 
@@ -130,7 +122,7 @@ export default {
 
 
 <style>
-input.fakeInp{
+input.fakeInp {
   border: 1px dashed black;
   background: transparent;
 }

@@ -1,16 +1,20 @@
 <template>
-  <div @click="goToRecipeView(name)" class="dashRecipe">
+  <div @Click="goToRecipeView" class="dashRecipe">
     <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
       <RecipeTag v-for="tag in tags" :key="tag" 
-      class="recipeTag"
-      :tagTitle="tag"></RecipeTag>
+        class="recipeTag"
+        :tagTitle="tag">
+      </RecipeTag>
     </span>
+    <span class='deleteButton'><button @Click="handleDelete" class="delete">X</button></span>
   </div>
 </template>
 
 <script>
 import RecipeTag from './RecipeTag.vue'
+import db from './firebaseInit'
+
 export default {
   name: 'DashboardRecipe',
   props: {
@@ -25,26 +29,41 @@ export default {
     tags: {
       type: Array,
       required: true
-    } 
+    },
+    docId: {
+      type: String,
+      required: true
+    }, 
   },
   components: {
     RecipeTag
   },
-  methods: {
-    goToRecipeView(recipeName){
-      this.$router.push(recipeName);
+  data() {
+    return {
+      deletePressed: false
     }
-      //insertTags() {
-      //  this.tags.forEach((tag) => {
-      //    d = document.createElement("div")
-      //    this.$refs['tagsContainer'].appendChild()
-      //  });
-      //}
+  },
+  methods: {
+    goToRecipeView(){
+      if(!this.deletePressed) {
+        this.$router.push(this.name);
+      } 
+      this.deletePressed = false;
+    },
+    handleDelete() {
+      this.deletePressed = true;
+      console.log('deleting: ' + this.docId)
+      if(confirm(`are you sure you wanna delete ${this.name}?`)) {
+        db.collection('recipes').doc(this.docId).delete().then(() =>{
+          location.reload();
+        }, err => console.error(err));
+      }
+    }
   },
 }
 </script>
 
-<style scoped>
+<style>
 
 .dashRecipe {
     border: 1px solid grey;
@@ -69,5 +88,15 @@ export default {
   margin: .25vw;
   border: 1px solid black;
   color: black;
+}
+
+span.deleteButton {
+  float: right;
+}
+
+.delete {
+  cursor: pointer; 
+  background-color: red;
+  color: white;
 }
 </style>

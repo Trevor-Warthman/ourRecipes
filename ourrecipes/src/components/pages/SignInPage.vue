@@ -32,7 +32,8 @@ export default {
         const data = {
           'author': doc.data().author,
           'name': doc.data().name,
-          'tags': doc.data().tags
+          'tags': doc.data().tags,
+          'docId': doc.id
         }
         this.homepageRecipes.push(data)
       })
