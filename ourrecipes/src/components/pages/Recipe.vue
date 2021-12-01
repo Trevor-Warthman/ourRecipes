@@ -1,6 +1,7 @@
 <template>
   <div> 
-    <NavBar :pages="home"></NavBar>
+    <div v-if="found === true">
+      <NavBar :pages="home"></NavBar>
     <RecipeHeader
       :name="recipeName"
       :tags="tags"
@@ -12,11 +13,18 @@
       :instructions="instructions"
       :ingredients="ingredients"
     ></RecipeBody>
+    </div>
+    <div v-else-if="found === false">
+      There was an error, your recipe could not be loaded. Please hit back and try again.
+    </div>
+    <div v-else>
+      LOADING SPINNER
+    </div>
   </div>
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
+
 import NavBar from "../NavBar.vue";
 import RecipeHeader from "@/components/RecipeViewComponents/RecipeHeader.vue";
 import RecipeBody from "@/components/RecipeViewComponents/RecipeBody.vue";
@@ -31,7 +39,11 @@ export default {
     RecipeHeader,
     RecipeBody,
   },
-  mounted() {
+  created() {
+    //Set data from param
+    this.recipeName = this.$route.params.recipe;
+
+    //Set data from database
     db.collection('recipes').get().then(querySnapshot => {
       for(let i = 0; i < querySnapshot.docs.length; i += 1) {
         if(this.recipeName == querySnapshot.docs[i].data().name) {
@@ -45,8 +57,9 @@ export default {
           break;
         }
       }
-      if(!this.found) {
+      if(this.found !== true) {
         console.log("Recipe Not found!");
+        this.found = false;
       }
 
       // let recipeInfo = querySnapshot.docs.find((doc) => doc.data().name === this.recipeName).data()
@@ -60,20 +73,24 @@ export default {
     
   },
   computed: {
-    recipeName: function() {
-      const route = useRoute();
-      return route.params.recipe
+    
+  },
+  watch: {
+    $route(to) {
+      console.log(to)
+      this.recipeName = to;
     }
   },
   data(){
     return{
+      recipeName: null,
       author: 'blah blah blah',
       recipeId: 1,
       instructions: [],
       ingredients: [],
       description: '',
       tags: [],
-      found: true
+      found: null
     }
   },
 };
