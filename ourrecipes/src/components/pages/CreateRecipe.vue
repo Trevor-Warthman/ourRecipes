@@ -7,11 +7,11 @@
       
       <input id="tag1" v-on:click="updateList" v-model="message" placeholder="Enter tag name">
     </p>
-    <p id="ingredientList">Ingredients: 
+    <p id="ingredientList">Ingredients
       
       <input id="ingredient1" v-on:click="updateList" v-model="message" placeholder="Enter ingredient name">
     </p>
-    <p id="instructionList">Instructions: 
+    <p id="instructionList">Instructions 
       
       <input id="instruction1" v-on:click="updateList" v-model="message" placeholder="Enter instruction name">
     </p>
@@ -65,14 +65,28 @@ export default {
         "authorUID":"this-is-fake-for-now",
         "created": (new Date()).toLocaleString()
       }
-      let submitMsg = document.getElementById('submitting');
-      submitMsg.innerHTML = 'Adding Recipe...';
-      db.collection('recipes').add(data).then(() => {
-        submitMsg.innerHTML = 'Added!';
-      }, err => {
-        submitMsg.innerHTML = 'Failed :(';
-        console.error(err);
-      })
+      let invalidInputs = []
+      for(let key in data) {
+        if(data[key] == '' || data[key] == []) {
+          invalidInputs.push(key)
+        }
+      }
+
+      if(invalidInputs.length > 0) {
+        alert('the following fields cannot be empty:\n  - ' + invalidInputs.join('\n  - '))
+      }
+      else {
+        let submitMsg = document.getElementById('submitting');
+
+        submitMsg.innerHTML = 'Adding Recipe...';
+
+        db.collection('recipes').add(data).then(() => {
+          submitMsg.innerHTML = 'Added!';
+        }, err => {
+          submitMsg.innerHTML = 'Failed :(';
+          console.error(err);
+        })
+      }
     },
 
     updateList: function(clickedElement) {

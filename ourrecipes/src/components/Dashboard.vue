@@ -6,6 +6,7 @@
       class="dashRecipe" 
       :name="recipe.name" :author="recipe.author" :tags="recipe.tags">
       </DashboardRecipe>
+      <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
     </div>
   </div>
 </template>
@@ -68,6 +69,10 @@ export default {
   background-color: #BC4B51;
 }
 .dashBoarder div:nth-child(3n -2) {
+  background-color: #4A7B9D;
+}
+
+router-link{
   background-color: #4A7B9D;
 }
 </style>
