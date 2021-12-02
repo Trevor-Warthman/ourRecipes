@@ -1,8 +1,8 @@
 <template>
   <div class="container"> 
     <NavBar :pages="createRecipe"></NavBar>
-    <p>Recipe Name: <input id="name" v-model="message" placeholder="Enter recipe name"></p>
-    <p>Recipe Description: <input id="desc" v-model="message" placeholder="Enter recipe description"></p>
+    <p>Recipe Name <input id="name" v-model="message" placeholder="Enter recipe name"></p>
+    <p>Recipe Description <input id="desc" v-model="message" placeholder="Enter recipe description"></p>
     <p id="tagList">Tags 
       
       <input id="tag1" v-on:click="updateList" v-model="message" placeholder="Enter tag name">
@@ -157,5 +157,10 @@ button.createRecipe {
 button.createRecipe:hover {
   background-color: rgb(75, 100, 206);
   font-size: 15px;
+}
+
+p {
+  font-weight: bold;
+  text-align: left;
 }
 </style>
