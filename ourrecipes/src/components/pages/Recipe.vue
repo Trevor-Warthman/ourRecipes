@@ -1,7 +1,6 @@
 <template>
   <div> 
     <div v-if="found === true">
-      <NavBar :pages="home"></NavBar>
     <RecipeHeader
       :name="recipeName"
       :tags="tags"
@@ -25,7 +24,6 @@
 
 <script>
 
-import NavBar from "../NavBar.vue";
 import RecipeHeader from "@/components/RecipeViewComponents/RecipeHeader.vue";
 import RecipeBody from "@/components/RecipeViewComponents/RecipeBody.vue";
 import db from '../firebaseInit'
@@ -35,7 +33,6 @@ export default {
   props: {
   },
   components: {
-    NavBar,
     RecipeHeader,
     RecipeBody,
   },

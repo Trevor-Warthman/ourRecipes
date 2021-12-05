@@ -1,6 +1,6 @@
 <template>
   <div class="container"> 
-    <NavBar :pages="createRecipe"></NavBar>
+    <!-- <NavBar :pages="createRecipe"></NavBar> -->
     <p>Recipe Name <input id="name" v-model="message" placeholder="Enter recipe name"></p>
     <p>Recipe Description <input id="desc" v-model="message" placeholder="Enter recipe description"></p>
     <p id="tagList">Tags 
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavBar from "../NavBar.vue";
+// import NavBar from "../NavBar.vue";
 import db from '../firebaseInit'
 
 export default {
@@ -29,7 +29,7 @@ export default {
   props: {
   },
   components: {
-    NavBar,
+    // NavBar,
   },
   mounted() {
     let initTag = document.getElementById('tag1');

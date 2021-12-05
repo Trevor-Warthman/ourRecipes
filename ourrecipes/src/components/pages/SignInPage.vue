@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import db from '../firebaseInit'
+// import db from '../firebaseInit'
 import LoginModule from '@/components/LoginModule'
 import Dashboard from '@/components/Dashboard'
 
@@ -26,18 +26,18 @@ export default {
     }
   },
   created() {
-    db.collection('recipes').get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        //doc.id, doc.data, etc.
-        const data = {
-          'author': doc.data().author,
-          'name': doc.data().name,
-          'tags': doc.data().tags,
-          'docId': doc.id
-        }
-        this.homepageRecipes.push(data)
-      })
-    })
+    // db.collection('recipes').get().then(querySnapshot => {
+    //   querySnapshot.forEach(doc => {
+    //     //doc.id, doc.data, etc.
+    //     const data = {
+    //       'author': doc.data().author,
+    //       'name': doc.data().name,
+    //       'tags': doc.data().tags,
+    //       'docId': doc.id
+    //     }
+    //     this.homepageRecipes.push(data)
+    //   })
+    // })
   }
 }
 

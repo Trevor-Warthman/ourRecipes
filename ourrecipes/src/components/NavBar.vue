@@ -1,34 +1,77 @@
 <template>
-  <div id="nav-bar-main">
-    Logo with "Our Recipes"
-    <button>Home</button>
-  </div>
+    <div class="nav-container">
+      <ul>
+        <li>
+          <router-link tag="li" to="/createRecipe">Create Recipe</router-link>
+        </li>
+        <li>
+          <router-link tag="li" to="/home">Home</router-link>
+        </li>
+        <li>
+          <router-link tag="li" to="/">Recipes</router-link>
+        </li>
+        <li>
+          <div id="logo">Recipes</div>
+        </li>
+      </ul>
+    </div>
+
 </template>
+
 
 <script>
 export default {
   name: "NavBar",
   props: {
     pages: Array,
-  },
-  //data: {
-  //  pageLinks: {
-  //   homepage: "linkToHome",
-  //},
-  //},
+  }
 };
 </script>
 
-
 <style scoped>
-#nav-bar-main {
+.nav-container {
+  width: 95%;
   top: 0;
-  position: absolute;
-  background-color: rgb(75, 180, 206);
-  height: 50px;
-  width: 100%;
+  position: fixed;
+  margin-right: 50px;
+  padding: 2px;
+  z-index:100;
+
 }
-button {
+.nav-container ul {
   height: 100%;
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(75, 180, 206);
+  border: 1px solid white;
+}
+
+.nav-container li a{
+  float: right;
+}
+
+.nav-container li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-left: 1px solid white;
+}
+.nav-container li a:hover:not(.router-link-active) {
+  background-color: rgb(75, 150, 206);
+}
+
+.nav-container .router-link-active {
+  background-color: white;
+  color: rgb(75, 180, 206);
+}
+.nav-container li #logo {
+  float: left;
+}
+body {
+  margin: 0;
 }
 </style>
