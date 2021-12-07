@@ -1,13 +1,14 @@
 <template>
   <div class="dashContainer">
-    <h1 style="display: inline-block;">{{ title }} </h1><span style="font-size: 10px; float: right;">This is {{ type }}</span>
+    <h1 style="display: inline-block;">{{ title }} </h1>
     <div class="dashBoarder">
       <DashboardRecipe v-for="recipe in recipes" :key="recipe" 
       class="dashRecipe" 
         :name="recipe.name" 
         :author="recipe.author" 
         :tags="recipe.tags" 
-        :docId="recipe.docId">
+        :docId="recipe.docId"
+        @mouseover="hover = true" @mouseleave="hover = false">
       </DashboardRecipe>
       <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
     </div>
@@ -37,7 +38,7 @@ export default {
   },
   data() {
     return {
-      
+      hover: false,
     }
   }
 }
@@ -45,6 +46,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.dashExpand {
+  border: 2px solid black;
+    /* Sets height to 35% of width*/
+    width: 100%;
+    height: 0;
+    padding-bottom: 35%;
+}
 
 .dashBoarder {
     border: 2px solid black;
