@@ -27,6 +27,7 @@
 import RecipeHeader from "@/components/RecipeViewComponents/RecipeHeader.vue";
 import RecipeBody from "@/components/RecipeViewComponents/RecipeBody.vue";
 import db from '../firebaseInit'
+import RecipeDBO from '../dbCode';
 
 export default {
   recipeName: "Recipe",
@@ -37,8 +38,10 @@ export default {
     RecipeBody,
   },
   created() {
+    let dbo = new RecipeDBO();
     //Set data from param
     this.recipeName = this.$route.params.recipe;
+    dbo.find(this.recipeName);
 
     //Set data from database
     db.collection('recipes').get().then(querySnapshot => {

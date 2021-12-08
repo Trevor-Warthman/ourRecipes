@@ -1,10 +1,10 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore' 
 import firebaseConfig from './firebaseConfig.js'
-class RecipeDBO {
+export default class RecipeDBO {
     constructor() {
         this.db = firebase.initializeApp(firebaseConfig).firestore()
-        this.cache = {}
+        this.cookie = "recipe-local-storage-key-id"
     }
 
     async findAll() {
@@ -20,22 +20,33 @@ class RecipeDBO {
                     "tags": data.tags
                 }
             });
-            this.cache['recipeInfo'] = recipes;
-            this.cache['time'] = Date.now()
+            let newCache = {};
+            recipes.forEach(recipe => {
+                newCache[recipe.name] = {
+                    "recipeInfo": recipe,
+                    "timeCached": Date.now()
+                }});
+            localStorage.setItem(this.cookie, JSON.stringify(newCache))
             return recipes;
         }).catch(e => console.log(e))
     }
 
-    find(name) {
-        let timeCreated = this.cache['time'];
-        let timeDiff = Date.now() - timeCreated;
-        let timeDiffHrs = timeDiff / 360;
-        console.log(timeDiffHrs)
-        if(timeDiffHrs < 1) {
-            return this.findFromCache(name)            
-        } else {
-            this.cache = {}
-            return await this.findFromDB(name)
+    async find(name) {
+        let cache = localStorage.getItem(this.cookie);
+        if(cache) {
+            let cacheObj = JSON.parse(cache);
+            if(name in cacheObj) {
+                let timeCreated = cacheObj['timeCached'];
+                let timeDiff = Date.now() - timeCreated;
+                let timeDiffHrs = timeDiff / 360;
+                console.log(timeDiffHrs)
+                if (timeDiffHrs < 1) {
+                    return this.findFromCache(name)
+                } else {
+                    this.cache = {}
+                    return await this.findFromDB(name)
+                }
+            }
         }
     }
 
@@ -46,15 +57,24 @@ class RecipeDBO {
     async findFromDB(name) {
         return this.findAll().then(recipes => recipes.find((recipe) => recipe.name == name))
     }
-
+    //hi
     add(recipeInfo) {
         //TODO: Implement
+        console.log(recipeInfo)
+
     }
 
     remove(name) {
         //TODO: Implement
+        console.log(name)
+
+    }
+
+    testSet() {
+        localStorage.setItem('tmp', 1);
+    }
+    testGet() {
+        console.log('from cache')
+        console.log(localStorage.getItem('tmp'))
     }
 }
-
-let dbo = new RecipeDBO();
-console.log(dbo.find('Tuscan Chicken'))

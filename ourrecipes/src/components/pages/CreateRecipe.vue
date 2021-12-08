@@ -22,7 +22,8 @@
 
 <script>
 // import NavBar from "../NavBar.vue";
-import db from '../firebaseInit'
+import db from '../firebaseInit';
+import RecipeDBO from '../dbCode';
 
 export default {
   recipeName: "Recipe",
@@ -42,6 +43,10 @@ export default {
     initIngredient.addEventListener('click', () => this.updateList(initIngredient))
 
     document.addEventListener('click', this.handleClickAwayFromInputList, true);
+
+    let recipeDB = new RecipeDBO();
+    recipeDB.testSet();
+
   },
   data(){
     return{

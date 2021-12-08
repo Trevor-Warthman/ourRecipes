@@ -64,7 +64,8 @@ export default {
 </script>
 
 <style>
-
+/*.dashRecipe:hover {*/
+/*}*/
 .dashRecipe {
     border: 1px solid grey;
     width: 90%;

@@ -57,7 +57,7 @@ export default {
           author: "Trevor Warthman",
           tags: ["Texan", "Mexican", "Classic", "Easy", "Spicy", "Hot", "Warm"]
         },
-*/ 
+*/
 </script>
 
 
