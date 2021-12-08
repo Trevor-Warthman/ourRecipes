@@ -10,6 +10,8 @@
         :docId="recipe.docId"
         @mouseover="hover = true" @mouseleave="hover = false">
       </DashboardRecipe>
+      <span v-if="hover" class="{ dashExpand: hover }">
+      </span>
       <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
     </div>
   </div>
@@ -47,19 +49,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .dashExpand {
-  border: 2px solid black;
-    /* Sets height to 35% of width*/
-    width: 100%;
-    height: 0;
-    padding-bottom: 35%;
+    border-block: 2;
 }
 
 .dashBoarder {
     border: 2px solid black;
-    /* Sets height to 35% of width*/
     width: 100%;
-    height: 0;
-    padding-bottom: 35%;
+    height: 10;
+    padding-bottom: 10%;
 }
 .dashRecipe {
   padding: 10px;
@@ -70,7 +67,7 @@ export default {
 }
 
 .dashContainer {
-  border: 1.25px solid grey;
+  border: 0px solid grey;
 }
 
 .dashBoarder div:nth-child(3n) {
