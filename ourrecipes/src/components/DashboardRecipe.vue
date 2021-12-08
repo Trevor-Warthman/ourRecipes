@@ -1,5 +1,5 @@
 <template>
-  <div @Click="goToRecipeView" class="dashRecipe">
+  <div @Click="goToRecipeView" class="dashRecipe" @mouseover="showDiv" @mouseleave="hideDiv">
     <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
       <RecipeTag v-for="tag in tags" :key="tag" 
@@ -8,6 +8,9 @@
       </RecipeTag>
     </span>
     <span class='deleteButton'><button @Click="handleDelete" class="delete">X</button></span>
+    <div class="recipeIngredients">
+      {{ ingredients }}
+    </div>
   </div>
 </template>
 
@@ -27,6 +30,10 @@ export default {
       required: true
     },
     tags: {
+      type: Array,
+      required: true
+    },
+    ingredients: {
       type: Array,
       required: true
     },
@@ -58,6 +65,12 @@ export default {
           location.reload();
         }, err => console.error(err));
       }
+    },
+    showDiv(e) {
+      e.srcElement.getElementsByClassName('recipeIngredients')[0].style.visibility = "visible";
+    },
+    hideDiv(e) {
+      e.srcElement.getElementsByClassName('recipeIngredients')[0].style.visibility = "hidden";
     }
   },
 }
@@ -71,7 +84,10 @@ export default {
     height: 30px;
     vertical-align: center;
 }
-
+.dashRecipe:hover {
+  height: 100px;
+  
+}
 .recipeHead{ 
   float: left;
 }
@@ -88,6 +104,10 @@ export default {
   margin: .25vw;
   border: 1px solid black;
   color: black;
+}
+
+.recipeIngredients {
+  visibility: hidden;
 }
 
 span.deleteButton {

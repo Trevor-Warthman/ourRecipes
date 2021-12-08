@@ -7,11 +7,9 @@
         :name="recipe.name" 
         :author="recipe.author" 
         :tags="recipe.tags" 
-        :docId="recipe.docId"
-        @mouseover="hover = true" @mouseleave="hover = false">
+        :ingredients="recipe.ingredients"
+        :docId="recipe.docId">
       </DashboardRecipe>
-      <span v-if="hover" class="{ dashExpand: hover }">
-      </span>
       <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
     </div>
   </div>
@@ -37,20 +35,12 @@ export default {
       type: Array,
       required: true
     } 
-  },
-  data() {
-    return {
-      hover: false,
-    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.dashExpand {
-    border-block: 2;
-}
 
 .dashBoarder {
     border: 2px solid black;
