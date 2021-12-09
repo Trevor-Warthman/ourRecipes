@@ -8,7 +8,7 @@
           <router-link tag="li" to="/signout">Sign Out</router-link>
         </li>
         <li v-if="!loggedIn">
-          <router-link tag="li" to="/authenticate">Log In</router-link>
+          <router-link tag="li" to="/authenticate">Log In/Sign Up</router-link>
         </li>
         <li>
           <router-link tag="li" to="/home">Home</router-link>

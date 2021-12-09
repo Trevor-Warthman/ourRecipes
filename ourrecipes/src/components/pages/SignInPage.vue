@@ -30,7 +30,7 @@ export default {
        querySnapshot.forEach(doc => {
          //doc.id, doc.data, etc.
          const data = {
-           'author': doc.data().author,
+           'author': doc.data().authorUID,
            'name': doc.data().name,
            'tags': doc.data().tags,
            'docId': doc.id

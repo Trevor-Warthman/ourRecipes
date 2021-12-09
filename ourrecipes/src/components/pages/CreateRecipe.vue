@@ -21,8 +21,9 @@
 </template>
 
 <script>
-// import NavBar from "../NavBar.vue";
 import db from '../firebaseInit';
+import firebase from '../firebaseApp'
+
 import RecipeDBO from '../dbCode';
 
 export default {
@@ -50,7 +51,7 @@ export default {
   },
   data(){
     return{
-      author: 'blah blah blah',
+      author: '',
       recipeId: 1,
       instructions: [],
       ingredients: [],
@@ -67,7 +68,7 @@ export default {
         "tags": [...document.getElementById('tagList').children].map(inp => inp.value),
         "instructions": [...document.getElementById('instructionList').children].map(inp => inp.value),
         "ingredients": [...document.getElementById('ingredientList').children].map(inp => inp.value),
-        "authorUID":"this-is-fake-for-now",
+        "authorUID":firebase.auth().currentUser.email,
         "created": (new Date()).toLocaleString()
       }
       let invalidInputs = []

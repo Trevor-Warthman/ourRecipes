@@ -7,13 +7,14 @@
         :tagTitle="tag">
       </RecipeTag>
     </span>
-    <span class='deleteButton'><button @Click="handleDelete" class="delete">X</button></span>
+    <span v-if="ownsRecipe" class='deleteButton'><button @Click="handleDelete" class="delete">X</button></span>
   </div>
 </template>
 
 <script>
 import RecipeTag from './RecipeTag.vue'
 import db from './firebaseInit'
+import firebase from './firebaseApp'
 
 export default {
   name: 'DashboardRecipe',
@@ -38,9 +39,17 @@ export default {
   components: {
     RecipeTag
   },
+  created() {
+    let self = this;
+    firebase.auth().onAuthStateChanged(function(user) {
+      self.ownsRecipe = user.email == self.author;
+    });
+     
+  },
   data() {
     return {
-      deletePressed: false
+      deletePressed: false,
+      ownsRecipe: false
     }
   },
   methods: {
