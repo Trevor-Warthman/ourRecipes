@@ -1,8 +1,14 @@
 <template>
     <div class="nav-container">
       <ul>
-        <li>
+        <li v-if="loggedIn">
           <router-link tag="li" to="/createRecipe">Create Recipe</router-link>
+        </li>
+        <li v-if="loggedIn">
+          <router-link tag="li" to="/signout">Sign Out</router-link>
+        </li>
+        <li v-if="!loggedIn">
+          <router-link tag="li" to="/authenticate">Log In</router-link>
         </li>
         <li>
           <router-link tag="li" to="/home">Home</router-link>
@@ -13,6 +19,7 @@
         <li>
           <div id="logo">Recipes</div>
         </li>
+
       </ul>
     </div>
 
@@ -20,10 +27,25 @@
 
 
 <script>
+// import firebase from 'firebase/compat/app'
+import firebase from './firebaseApp'
+
 export default {
   name: "NavBar",
   props: {
     pages: Array,
+  }, 
+  created() {
+    let self = this;
+    firebase.auth().onAuthStateChanged(function(user) {
+      self.loggedIn = user;
+    });
+     
+  },
+  data() {
+    return {
+      loggedIn: false
+    }
   }
 };
 </script>
