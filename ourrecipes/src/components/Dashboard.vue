@@ -10,7 +10,7 @@
         :ingredients="recipe.ingredients"
         :docId="recipe.docId">
       </DashboardRecipe>
-      <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link>
+      <!-- <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link> -->
     </div>
   </div>
 </template>
@@ -43,17 +43,17 @@ export default {
 <style scoped>
 
 .dashBoarder {
-    border: 2px solid black;
-    width: 100%;
-    height: 10;
-    padding-bottom: 10%;
+  border: 2px solid black;
+  width: 90%;
+  margin: auto;
+  height: max-content;
+  padding: 5px;
 }
 .dashRecipe {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  width: auto;
 }
 
 .dashContainer {

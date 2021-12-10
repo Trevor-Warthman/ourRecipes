@@ -51,23 +51,31 @@ export default {
 </script>
 
 <style scoped>
-.nav-container {
-  width: 95%;
-  top: 0;
-  position: fixed;
-  margin-right: 50px;
-  padding: 2px;
-  z-index:100;
-
-}
-.nav-container ul {
-  height: 100%;
-  list-style-type: none;
-  width: 100%;
+html, body {
   padding: 0;
+  margin: 0;
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: rgb(75, 180, 206);
+    border: 1px solid rgb(75, 180, 206);
+}
+
+.nav-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
   overflow: hidden;
   background-color: rgb(75, 180, 206);
-  border: 1px solid white;
 }
 
 .nav-container li a{

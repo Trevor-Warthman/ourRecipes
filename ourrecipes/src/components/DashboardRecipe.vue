@@ -1,5 +1,5 @@
 <template>
-  <div @Click="goToRecipeView" class="dashRecipe" @mouseover="showDiv" @mouseleave="hideDiv">
+  <div @Click="goToRecipeView" class="dashRecipe" @mouseover="hover = true" @mouseleave="hover = false">
     <span class="recipeHead"><span class="recipeTitle">{{name}}</span> <span class="recipeAuthor">By: {{author}}</span></span> 
     <span ref="tagContainer">
       <RecipeTag v-for="tag in tags" :key="tag" 
@@ -7,9 +7,14 @@
         :tagTitle="tag">
       </RecipeTag>
     </span>
-    <span class='deleteButton'><button @Click="handleDelete" class="delete">X</button></span>
-    <div class="recipeIngredients">
-      {{ ingredients }}
+    <span v-show="ownsRecipe" class='deleteButton'>
+      <button @Click="handleDelete" class="delete">X</button>
+    </span>
+    <div v-show="hover" class="recipeIngredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li class="ingredient-ele" v-for="i in ingredients" :key="i"> {{i}} </li>
+        </ul>
     </div>
   </div>
 </template>
@@ -56,7 +61,8 @@ export default {
   data() {
     return {
       deletePressed: false,
-      ownsRecipe: false
+      ownsRecipe: false,
+      hover: false,
     }
   },
   methods: {
@@ -74,12 +80,6 @@ export default {
           location.reload();
         }, err => console.error(err));
       }
-    },
-    showDiv(e) {
-      e.srcElement.getElementsByClassName('recipeIngredients')[0].style.visibility = "visible";
-    },
-    hideDiv(e) {
-      e.srcElement.getElementsByClassName('recipeIngredients')[0].style.visibility = "hidden";
     }
   },
 }
@@ -95,8 +95,12 @@ export default {
     vertical-align: center;
 }
 .dashRecipe:hover {
-  height: 100px;
-  
+  height: max-content;
+  cursor: pointer;
+}
+
+.ingredient-ele {
+  font-size: 18px;
 }
 .recipeHead{ 
   float: left;
@@ -117,7 +121,7 @@ export default {
 }
 
 .recipeIngredients {
-  visibility: hidden;
+  text-align: left;
 }
 
 span.deleteButton {
@@ -125,8 +129,17 @@ span.deleteButton {
 }
 
 .delete {
-  cursor: pointer; 
   background-color: red;
   color: white;
+  margin-right: 10px;
 }
+
+.delete:hover {
+  /* cursor: crosshair;  */
+  background-color: rgb(150, 0, 0);
+  color: white;
+  box-shadow: 3px 3px #000000;
+  margin-right: 12px;
+}
+
 </style>
