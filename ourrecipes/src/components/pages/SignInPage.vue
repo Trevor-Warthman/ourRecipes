@@ -33,6 +33,7 @@ export default {
            'author': doc.data().authorUID,
            'name': doc.data().name,
            'tags': doc.data().tags,
+           'ingredients': doc.data().ingredients,
            'docId': doc.id
          }
          this.homepageRecipes.push(data)
