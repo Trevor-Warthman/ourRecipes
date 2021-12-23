@@ -1,3 +1,3 @@
 import firebaseApp from './firebaseApp'
 import 'firebase/compat/firestore' 
-export default firebaseApp.firestore()
+export default firebaseApp.auth()

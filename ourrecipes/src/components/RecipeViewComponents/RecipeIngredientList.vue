@@ -2,7 +2,7 @@
   <div class="recipeIngredients">
     <ul>
       Ingredients:
-      <li v-for="ing in recipeIngs" :key="ing">
+      <li v-for="ing in ingredients" :key="ing">
         {{ ing }}
       </li>
     </ul>
@@ -17,6 +17,7 @@ export default {
   name: "RecipeIngredientList",
   props: {
     recipeId: Number,
+    ingredients: Array,
     styleObject: Object,
   },
   components: {
@@ -25,14 +26,6 @@ export default {
   mounted() {},
   data() {
     return {
-      recipeIngs: [
-        "Chicken, 1.5 pounds",
-        "1 bunch of cilantro",
-        "6 buns",
-        "4 tbsp soy sauce",
-        "1 red onion",
-        "etc",
-      ],
       ingredientsDesc: "some desc of ings",
     };
   },

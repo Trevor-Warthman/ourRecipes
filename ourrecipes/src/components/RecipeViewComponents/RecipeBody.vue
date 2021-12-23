@@ -1,8 +1,8 @@
 <template>
   <div>
     <AuthorNote :recipeId="recipeId" :noteId="recipeDesc"></AuthorNote>
-    <RecipeIngredientList :recipeId="recipeId"></RecipeIngredientList>
-    <RecipeInstructions :recipeId="recipeId"></RecipeInstructions>
+    <RecipeIngredientList :recipeId="recipeId" :ingredients="ingredients"></RecipeIngredientList>
+    <RecipeInstructions   :recipeId="recipeId" :instructions="instructions"></RecipeInstructions>
     <AuthorNote :recipeId="recipeId" :noteId="recipeStory"></AuthorNote>
   </div>
 </template>
@@ -16,9 +16,12 @@ export default {
   name: "RecipeBody",
   props: {
     recipeId: Number,
+    instructions: Array,
+    ingredients: Array,
     styleObject: Object,
   },
   components: {
+    AuthorNote,
     RecipeIngredientList,
     RecipeInstructions,
   },

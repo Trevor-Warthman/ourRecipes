@@ -1,11 +1,16 @@
 <template>
   <div class="dashContainer">
-    <h1 style="display: inline-block;">{{ title }} </h1><span style="font-size: 10px; float: right;">This is {{ type }}</span>
+    <h1 style="display: inline-block;">{{ title }} </h1>
     <div class="dashBoarder">
       <DashboardRecipe v-for="recipe in recipes" :key="recipe" 
       class="dashRecipe" 
-      :name="recipe.name" :author="recipe.author" :tags="recipe.tags">
+        :name="recipe.name" 
+        :author="recipe.author" 
+        :tags="recipe.tags" 
+        :ingredients="recipe.ingredients"
+        :docId="recipe.docId">
       </DashboardRecipe>
+      <!-- <router-link to="/CreateRecipe" type="button">Create New Recipe</router-link> -->
     </div>
   </div>
 </template>
@@ -18,37 +23,41 @@ export default {
     DashboardRecipe
   },
   props: {
-    type: String,
-    title: String,
-    recipes: Array
-  },
-  data() {
-    return {
-      currentRecipeQuickView: null
-    }
+    type: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    recipes: {
+      type: Array,
+      required: true
+    } 
   }
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .dashBoarder {
-    border: 2px solid black;
-    /* Sets height to 35% of width*/
-    width: 100%;
-    height: 0;
-    padding-bottom: 35%;
+  border: 2px solid black;
+  width: 90%;
+  margin: auto;
+  height: max-content;
+  padding: 5px;
 }
 .dashRecipe {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  width: auto;
 }
 
 .dashContainer {
-  border: 1.25px solid grey;
+  border: 0px solid grey;
 }
 
 .dashBoarder div:nth-child(3n) {
@@ -58,6 +67,10 @@ export default {
   background-color: #BC4B51;
 }
 .dashBoarder div:nth-child(3n -2) {
+  background-color: #4A7B9D;
+}
+
+router-link{
   background-color: #4A7B9D;
 }
 </style>
