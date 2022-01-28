@@ -1,6 +1,7 @@
 <template>
   <div class="dashContainer">
     <!--<h1 style="display: inline-block;">{{ title }} </h1>-->
+    <div class="dashHeader">Dashboard Recipe:</div>
     <div class="dashBoarder">
       <DashboardRecipe v-for="recipe in recipes" :key="recipe" 
       class="dashRecipe" 
@@ -45,7 +46,7 @@ export default {
 .dashBoarder {
   border-radius: 10px;
   background-color: #ffb581;
-  width: 90%;
+  width: 95%;
   margin: auto;
   height: max-content;
   padding: 5px;
@@ -57,7 +58,16 @@ export default {
   width: auto;
 }
 
+.dashHeader{
+  font-size: 24px;
+  font-weight: 800;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  color: #ff3333;
+}
+
 .dashContainer {
+  padding-top: 10px;
   border: 0px solid grey;
 }
 

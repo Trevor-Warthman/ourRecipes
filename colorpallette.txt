@@ -8,3 +8,6 @@
 --peach: #ffe5b4ff;
 --papaya-whip: #fff1d4ff;
 --goldenrod: #e3a320ff;
+Green: #1abd43
+Dark Green: #009124
+Red: #ff2d2d

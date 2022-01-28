@@ -1,17 +1,17 @@
 <template>
   <div class="container"> 
     <!-- <NavBar :pages="createRecipe"></NavBar> -->
-    <p>Recipe Name <input id="name" v-model="message" placeholder="Enter recipe name"></p>
-    <p>Recipe Description <input id="desc" v-model="message" placeholder="Enter recipe description"></p>
-    <p id="tagList">Tags 
+    <p>Recipe Name: <input id="name" v-model="message" placeholder="Enter recipe name"></p>
+    <p>Recipe Description: <input id="desc" v-model="message" placeholder="Enter recipe description"></p>
+    <p id="tagList">Tags: 
       
       <input id="tag1" v-on:click="updateList" v-model="message" placeholder="Enter tag name">
     </p>
-    <p id="ingredientList">Ingredients
+    <p id="ingredientList">Ingredients:
       
       <input id="ingredient1" v-on:click="updateList" v-model="message" placeholder="Enter ingredient name">
     </p>
-    <p id="instructionList">Instructions 
+    <p id="instructionList">Instructions: 
       
       <input id="instruction1" v-on:click="updateList" v-model="message" placeholder="Enter instruction name">
     </p>
@@ -135,23 +135,25 @@ input.fakeInp {
 input {
   width: 100%;
   padding: 12px 20px;
+  font-size: 18px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #e3a320;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
 div.container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #ffe5b4;
   padding: 20px;
   margin: 10px;
 }
 
 button.createRecipe {
   width: 100%;
-  background-color: rgb(75, 180, 206);
+  background-color: #1abd43;
+  font-size: 18px;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -161,12 +163,14 @@ button.createRecipe {
 }
 
 button.createRecipe:hover {
-  background-color: rgb(75, 100, 206);
-  font-size: 15px;
+  background-color: #009124;
+  font-size: 18px;
 }
 
 p {
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
+  color: #009124;
   text-align: left;
 }
 </style>
