@@ -85,14 +85,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /*.dashRecipe:hover {*/
 /*}*/
 .dashRecipe {
-    border: 1px solid grey;
-    width: 90%;
-    height: 30px;
     vertical-align: center;
+    border-radius: 10px;
+    width: 20%;
+    height: 50%;
+
 }
 .dashRecipe:hover {
   height: max-content;
@@ -110,14 +111,14 @@ export default {
   font-size: 18px;
 }
 .recipeAuthor {
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 10px;
+  vertical-align: center;
 }
 
 .recipeTag {
-  margin: .25vw;
-  border: 1px solid black;
   color: black;
+  margin-left: 10px;
 }
 
 .recipeIngredients {

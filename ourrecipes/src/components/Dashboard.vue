@@ -1,6 +1,6 @@
 <template>
   <div class="dashContainer">
-    <h1 style="display: inline-block;">{{ title }} </h1>
+    <!--<h1 style="display: inline-block;">{{ title }} </h1>-->
     <div class="dashBoarder">
       <DashboardRecipe v-for="recipe in recipes" :key="recipe" 
       class="dashRecipe" 
@@ -43,7 +43,8 @@ export default {
 <style scoped>
 
 .dashBoarder {
-  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #ffb581;
   width: 90%;
   margin: auto;
   height: max-content;
@@ -61,13 +62,13 @@ export default {
 }
 
 .dashBoarder div:nth-child(3n) {
-  background-color: #ECEBF3;
+  background-color: white;
 }
 .dashBoarder div:nth-child(3n -1) {
-  background-color: #BC4B51;
+  background-color: white;
 }
 .dashBoarder div:nth-child(3n -2) {
-  background-color: #4A7B9D;
+  background-color: white;
 }
 
 router-link{

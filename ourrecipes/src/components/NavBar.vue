@@ -11,15 +11,12 @@
           <router-link tag="li" to="/authenticate">Log In/Sign Up</router-link>
         </li>
         <li>
-          <router-link tag="li" to="/home">Home</router-link>
+          <router-link tag="li" to="/">Home</router-link>
         </li>
         <li>
-          <router-link tag="li" to="/">Recipes</router-link>
+          <div style="cursor: pointer;" onclick="window.location='/';" id= "logo">OurRecipes (rename)</div>
         </li>
-        <li>
-          <div id="logo">Recipes</div>
-        </li>
-
+        
       </ul>
     </div>
 
@@ -60,14 +57,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .nav-container {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
     width: 100%;
-    background-color: rgb(75, 180, 206);
-    border: 1px solid rgb(75, 180, 206);
+    background-color: #ffb600;
 }
 
 .nav-container ul {
@@ -75,7 +72,7 @@ body {
   padding: 0;
   margin: auto;
   overflow: hidden;
-  background-color: rgb(75, 180, 206);
+  background-color: #ffb600;
 }
 
 .nav-container li a{
@@ -88,18 +85,22 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  border-left: 1px solid white;
 }
-.nav-container li a:hover:not(.router-link-active) {
-  background-color: rgb(75, 150, 206);
+.nav-container li a:hover {
+  background-color: #fff1d4;
+  color: #e3a320;
 }
 
 .nav-container .router-link-active {
-  background-color: white;
-  color: rgb(75, 180, 206);
+  background-color: #ffb600;
 }
 .nav-container li #logo {
-  float: left;
+  margin-top: 10px;
+  margin-left:10px;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff1d4;
 }
 body {
   margin: 0;

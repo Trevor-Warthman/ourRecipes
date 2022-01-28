@@ -1,5 +1,10 @@
-EE6C4D
-4A7B9D
-FFBA08
-ECEBF3
-BC4B51
+--tart-orange: #ff3333ff;
+--bittersweet: #ff6464ff;
+--macaroni-and-cheese: #ffb581ff;
+--maize-crayola: #ffcd51ff;
+--selective-yellow: #ffb600ff;
+--middle-yellow: #ffec00ff;
+--orange: #ff8000ff;
+--peach: #ffe5b4ff;
+--papaya-whip: #fff1d4ff;
+--goldenrod: #e3a320ff;

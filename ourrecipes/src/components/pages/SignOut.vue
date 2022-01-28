@@ -21,7 +21,7 @@ export default {
     },
     data() {
         return {
-            secondsTilLogout: 5
+            secondsTilLogout: 3
         }
     }
 };

@@ -1,23 +1,22 @@
 <template>
   <div>
-    <h1>Our Recipes</h1>
-    <img alt="Vue logo" src="@/assets/logo.jpg">
-    <LoginModule title="Login Here"></LoginModule>
-    HYE
-    <router-link to="/Home" type="button">Fake sign in</router-link>
+    <!--<h1>Our Recipes</h1>-->
+    <!--<img alt="Vue logo" src="@/assets/logo.jpg">-->
+    <!--<LoginModule title="Login Here"></LoginModule>-->
+    <!--<router-link to="/Home" type="button">Fake sign in</router-link>-->
     <Dashboard type="public" title="Public Recipes"  :recipes="homepageRecipes"></Dashboard>
   </div>
 </template>
 
 <script>
 import db from '../firebaseInit'
-import LoginModule from '@/components/LoginModule'
+//import LoginModule from '@/components/LoginModule'
 import Dashboard from '@/components/Dashboard'
 
 export default {
   name: 'SignInPage',
   components: {
-    LoginModule,
+    //LoginModule,
     Dashboard
   },
   data() {
@@ -68,8 +67,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  text-align: auto;
   margin-top: 60px;
   font-family: sans-serif;
 }
